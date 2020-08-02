@@ -14,6 +14,12 @@
                         </div>
                     @endif
 
+                    @role('admin')
+                        I am a admin!
+                    @else
+                        I am user...
+                    @endrole
+
                     {{ __('You are logged in!') }}
                 </div>
             </div>
