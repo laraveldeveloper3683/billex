@@ -20,7 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => ['role:admin']], function () {
-Route::get('/admin', 'AdminController@index')->name('home');
+  Route::get('admin' , 'AdminController@index')->name('admin');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['role:user']], function () {
+  Route::get('user' , 'UserController@index')->name('user');
+});
